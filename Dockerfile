@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Copy dependency files
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --legacy-peer-deps
 
 # Copy source and build
 COPY . .
@@ -18,7 +18,7 @@ WORKDIR /app
 
 # Copy package files for backend dependencies
 COPY package*.json ./
-RUN npm ci --omit=dev
+RUN npm ci --omit=dev --legacy-peer-deps
 
 # Copy backend source
 COPY backend/ ./backend/
