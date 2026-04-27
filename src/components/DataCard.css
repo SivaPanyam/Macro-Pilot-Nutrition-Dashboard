@@ -1,0 +1,17 @@
+.data-card {
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  transition: box-shadow 0.2s ease;
+}
+
+.data-card:hover {
+  box-shadow: 0 8px 24px rgba(0, 163, 255, 0.08);
+}
+
+.data-card-title {
+  color: var(--on-surface-variant);
+  margin-bottom: var(--spacing-xs);
+}

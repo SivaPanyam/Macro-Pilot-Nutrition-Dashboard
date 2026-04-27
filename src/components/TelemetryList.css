@@ -1,0 +1,54 @@
+.telemetry-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.telemetry-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto 100px;
+  gap: var(--spacing-md);
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--surface-container-high);
+}
+
+.telemetry-item:last-child {
+  border-bottom: none;
+}
+
+.telemetry-time {
+  color: var(--outline);
+}
+
+.telemetry-name {
+  color: var(--on-surface);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.telemetry-macros {
+  display: flex;
+  gap: var(--spacing-sm);
+  color: var(--on-surface-variant);
+  justify-content: flex-end;
+}
+
+.macro-p { color: var(--primary); }
+.macro-c { color: var(--tertiary); }
+.macro-f { color: var(--outline); }
+
+.telemetry-calories {
+  text-align: right;
+  color: var(--on-surface);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .telemetry-item {
+    grid-template-columns: 60px 1fr 80px;
+  }
+  .telemetry-macros {
+    display: none;
+  }
+}

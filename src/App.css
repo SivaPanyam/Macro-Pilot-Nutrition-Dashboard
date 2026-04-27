@@ -1,0 +1,57 @@
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.macros-card {
+  grid-column: span 12;
+}
+
+@media (min-width: 1024px) {
+  .macros-card {
+    grid-column: span 8;
+  }
+}
+
+.calories-card {
+  grid-column: span 12;
+}
+
+@media (min-width: 1024px) {
+  .calories-card {
+    grid-column: span 4;
+  }
+}
+
+.log-card {
+  grid-column: span 12;
+}
+
+.meters-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xl);
+  justify-content: space-around;
+  padding: var(--spacing-md) 0;
+}
+
+.calories-content {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.progress-bar-container {
+  height: 8px;
+  background-color: var(--surface-container-high);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--primary);
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease;
+}

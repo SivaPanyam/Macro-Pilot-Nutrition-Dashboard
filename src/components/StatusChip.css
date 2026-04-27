@@ -1,0 +1,28 @@
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.chip-info {
+  background-color: var(--primary-fixed);
+  color: var(--on-primary-fixed);
+}
+
+.chip-success {
+  background-color: var(--secondary-fixed);
+  color: var(--on-secondary-fixed);
+}
+
+.chip-warning {
+  background-color: var(--tertiary-fixed);
+  color: var(--on-tertiary-fixed);
+}
+
+.chip-error {
+  background-color: var(--error-container);
+  color: var(--on-error-container);
+}

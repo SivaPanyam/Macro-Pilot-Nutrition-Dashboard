@@ -1,0 +1,55 @@
+.macro-meter-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.macro-meter-svg {
+  transform: rotate(-90deg);
+}
+
+.macro-meter-track {
+  fill: none;
+  stroke: var(--surface-container-high);
+}
+
+.macro-meter-progress {
+  fill: none;
+  stroke: var(--primary);
+  transition: stroke-dashoffset 0.8s ease, stroke 0.3s ease;
+}
+
+.macro-meter-progress.goal-reached {
+  stroke: var(--secondary-container); /* Neon green equivalent from design */
+}
+
+.macro-meter-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.meter-current {
+  color: var(--on-surface);
+}
+
+.meter-max {
+  color: var(--on-surface-variant);
+  margin-top: -4px;
+}
+
+.meter-label {
+  color: var(--primary);
+  margin-top: 4px;
+}
+
+.macro-meter-progress.goal-reached ~ .macro-meter-content .meter-label {
+  color: var(--secondary);
+}

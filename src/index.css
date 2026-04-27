@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Colors */
+  --surface: #f7f9fb;
+  --surface-dim: #d8dadc;
+  --surface-bright: #f7f9fb;
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f2f4f6;
+  --surface-container: #eceef0;
+  --surface-container-high: #e6e8ea;
+  --surface-container-highest: #e0e3e5;
+  --on-surface: #191c1e;
+  --on-surface-variant: #3f4852;
+  --inverse-surface: #2d3133;
+  --inverse-on-surface: #eff1f3;
+  --outline: #6f7883;
+  --outline-variant: #bec7d4;
+  --surface-tint: #00629d;
+  
+  --primary: #00629d;
+  --on-primary: #ffffff;
+  --primary-container: #00a3ff;
+  --on-primary-container: #00375a;
+  --inverse-primary: #98cbff;
+  --primary-fixed: #cfe5ff;
+  --primary-fixed-dim: #98cbff;
+  --on-primary-fixed: #001d33;
+  --on-primary-fixed-variant: #004a77;
+  
+  --secondary: #106e00;
+  --on-secondary: #ffffff;
+  --secondary-container: #38fe13;
+  --on-secondary-container: #107100;
+  --secondary-fixed: #79ff5b;
+  --secondary-fixed-dim: #2ae500;
+  --on-secondary-fixed: #022100;
+  --on-secondary-fixed-variant: #095300;
+  
+  --tertiary: #565e74;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #949cb5;
+  --on-tertiary-container: #2c3448;
+  --tertiary-fixed: #dae2fd;
+  --tertiary-fixed-dim: #bec6e0;
+  --on-tertiary-fixed: #131b2e;
+  --on-tertiary-fixed-variant: #3f465c;
+  
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+  
+  --background: #f7f9fb;
+  --on-background: #191c1e;
+
+  /* Typography */
+  --font-inter: 'Inter', sans-serif;
+  --font-space-grotesk: 'Space Grotesk', monospace, sans-serif;
+
+  /* Spacing */
+  --spacing-unit: 4px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 48px;
+  --spacing-gutter: 20px;
+  --spacing-margin-page: 32px;
+
+  /* Border Radius */
+  --radius-sm: 0.125rem;
+  --radius-default: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;   /* 8px */
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+  
+  /* Layout Baseline */
+  --baseline: 4px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--on-background);
+  font-family: var(--font-inter);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Utility Classes */
+.display-lg {
+  font-family: var(--font-inter);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.headline-md {
+  font-family: var(--font-inter);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.body-main {
+  font-family: var(--font-inter);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.label-caps {
+  font-family: var(--font-inter);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.data-lg {
+  font-family: var(--font-space-grotesk);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.data-sm {
+  font-family: var(--font-space-grotesk);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/* Elevation & Tonal Layers */
+.layer-0 {
+  background-color: var(--background);
+}
+
+.layer-1 {
+  background-color: var(--surface-container-lowest); /* Pure White */
+  box-shadow: 0 4px 12px rgba(0, 163, 255, 0.05);
+}
+
+.layer-2 {
+  background-color: var(--surface-container-lowest);
+  box-shadow: 0 8px 24px rgba(0, 163, 255, 0.1);
+  border: 1px solid rgba(0, 163, 255, 0.1); /* Primary blue at 10% opacity */
+}
+
+/* Grid & Layout */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--spacing-gutter);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-margin-page);
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-md);
+  }
+}
+
+/* High Contrast Theme Variables */
+body.theme-high-contrast {
+  --primary: #ffffff;
+  --primary-fixed: #00ff00;
+  --secondary-fixed: #ff00ff;
+  --tertiary-fixed: #00ffff;
+  --error: #ff0000;
+  --warning: #ffaa00;
+  --surface: #000000;
+  --surface-container: #111111;
+  --surface-container-high: #222222;
+  --surface-container-highest: #333333;
+  --on-surface: #ffffff;
+}
