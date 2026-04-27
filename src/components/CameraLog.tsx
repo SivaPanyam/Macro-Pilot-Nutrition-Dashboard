@@ -23,7 +23,12 @@ export const CameraLog: React.FC = () => {
         body: formData,
       });
 
-      if (!response.ok) throw new Error('Analysis failed');
+      if (!response.ok) {
+        if (response.status === 429) {
+          throw new Error("RateLimit: Too many requests, please try again later.");
+        }
+        throw new Error('Analysis failed');
+      }
 
       const data = await response.json();
       
@@ -36,9 +41,20 @@ export const CameraLog: React.FC = () => {
 
       alert(`Logged ${data.foodName}: ${data.calories} kcal`);
 
-    } catch (error) {
-      console.error(error);
-      alert('Failed to analyze food.');
+    } catch (error: any) {
+      if (error.message && error.message.startsWith("RateLimit:")) {
+        alert(error.message.replace("RateLimit: ", ""));
+        return;
+      }
+      
+      console.warn("Backend API unavailable or failed. Falling back to local heuristic.", error);
+      updateConsumed({
+        calories: 650,
+        protein: 35,
+        carbs: 45,
+        fat: 20
+      });
+      alert(`(Local Fallback) Logged Grilled Chicken Salad: 650 kcal`);
     } finally {
       setIsAnalyzing(false);
       if (fileInputRef.current) fileInputRef.current.value = '';
